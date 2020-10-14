@@ -1,13 +1,12 @@
-package com.baicha.refactoring.caseOne;
+package com.hp.refactoring.iterationThree;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- * @Author HaoPeng Lin
- * @Date 2020-10-11 14:31
- * @Version 1.0
- * @function
+ * 与上一次比对，修改了amountFor函数中的变量名
+ * @author haopeng lin
+ * 2020年 10月 13日
  */
 public class Customer {
     private String name;
@@ -35,25 +34,7 @@ public class Customer {
             Rental each = (Rental)rentalEunm.nextElement();
 
             //determine amounts for each line 确定每行的金额
-            switch (each.getMovie().getPriceCode()){
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2){
-                        thisAmount += (each.getDaysRented() -2) * 1.5;
-                    }
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
-                case Movie.CHILDRENS:
-                    thisAmount += 1.5;
-                    if (each.getDaysRented() > 3){
-                        thisAmount += (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-                default:
-                    break;
-            }
+            thisAmount = amountFor(each);
 
             //add frequent renter points 增加常客积分
             frequentRenterPoints ++;
@@ -72,6 +53,30 @@ public class Customer {
         //add footer lines
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "you earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        return result;
+    }
+
+    private double amountFor(Rental aRental){
+        double result = 0;
+        switch (aRental.getMovie().getPriceCode()){
+            case Movie.REGULAR:
+                result += 2;
+                if (aRental.getDaysRented() > 2){
+                    result += (aRental.getDaysRented() -2) * 1.5;
+                }
+                break;
+            case Movie.NEW_RELEASE:
+                result += aRental.getDaysRented() * 3;
+                break;
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (aRental.getDaysRented() > 3){
+                    result += (aRental.getDaysRented() - 3) * 1.5;
+                }
+                break;
+            default:
+                break;
+        }
         return result;
     }
 }

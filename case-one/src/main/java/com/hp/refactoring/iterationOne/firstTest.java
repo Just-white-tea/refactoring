@@ -1,13 +1,10 @@
-package com.baicha.refactoring.caseOne;
+package com.hp.refactoring.iterationOne;
 
 /**
- * @Author HaoPeng Lin
- * @Date 2020-10-11 16:09
- * @Version 1.0
- * @function
+ * @author haopeng lin
+ * 2020年 10月 13日
  */
 public class firstTest {
-
     public static void main(String[] args) {
         Movie movie1 = new Movie("霸王别姬",Movie.NEW_RELEASE);
         Movie movie2 = new Movie("激战",Movie.REGULAR);

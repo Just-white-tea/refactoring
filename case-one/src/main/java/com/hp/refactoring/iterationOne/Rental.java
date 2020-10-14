@@ -1,10 +1,8 @@
-package com.baicha.refactoring.caseOne;
+package com.hp.refactoring.iterationOne;
 
 /**
- * @Author HaoPeng Lin
- * @Date 2020-10-11 14:30
- * @Version 1.0
- * @function
+ * @author haopeng lin
+ * 2020年 10月 13日
  */
 public class Rental {
     private Movie movie;
